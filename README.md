@@ -6,10 +6,10 @@ For FRAP data analysis with continuum mechanics based model.
 ## Description
 
 ## Requirement
-FIJI/ImageJ with OrientationJ plug-in, MATLAB(2021) with Curve Fitting toolbox.
+FIJI/ImageJ with OrientationJ plug-in and MATLAB(2021) with Curve Fitting toolbox.
 ## Install
-FIJI/ImageJ:https://imagej.net/software/fiji/downloads
-OrientationJ:http://bigwww.epfl.ch/demo/orientation/
+[FIJI/ImageJ](https://imagej.net/software/fiji/downloads)
+[OrientationJ](http://bigwww.epfl.ch/demo/orientation/)
 
 ## Licence
 [MIT](https://github.com/takumizx10r)
