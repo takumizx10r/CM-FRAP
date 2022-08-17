@@ -13,6 +13,8 @@ subplot(ax1);
 axtoolbar('Visible','off');
 imagedata = imread(dupimage,'Index',iter+RAB_Frame-1);
 imagesc(imagedata);
+im_info=imfinfo(dupimage);
+im_size=im_info(iter+RAB_Frame-1).Height;
 szimage=size(imagedata);
 load spine
 colormap(ax1,map);
