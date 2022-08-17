@@ -1,4 +1,4 @@
-function [myMovie,PI_Strain, K_all] = func_strain_transformed_mapping(inputTensor_list,  inputimage, Iter, frame,ABSPATH_Tensor,outextension,outpath,indx_outlier)
+function [myMovie,PI_Strain, K_all] = func_strain_transformed_mapping_perp(inputTensor_list,  inputimage, Iter, frame,ABSPATH_Tensor,outextension,outpath,indx_outlier)
 %FUNC_STRAIN_MAPPING この関数の概要をここに記述
 %   詳細説明をここに記述
 

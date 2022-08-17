@@ -25,7 +25,6 @@ close all
 
 [inputimage, ABSPATH_Flow]=uigetfile(strcat(pwd,'\.tif'));
 addpath (ABSPATH_Flow);
-cd (ABSPATH_Flow);
 tiff_info = imfinfo(inputimage);
 [im_filepath, im_filename, im_extension]=fileparts(inputimage);
 imageindex=im_filename;

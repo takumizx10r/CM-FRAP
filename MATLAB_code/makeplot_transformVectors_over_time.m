@@ -6,7 +6,6 @@ close all
 
 [inputimage, ABSPATH_transform]=uigetfile(strcat(pwd,'\.tif'));
 
-cd (ABSPATH_transform);
 tiff_info = imfinfo(inputimage);
 [im_filepath, im_filename, im_extension]=fileparts(inputimage);
 imageindex=im_filename;

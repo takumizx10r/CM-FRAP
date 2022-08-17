@@ -3,7 +3,6 @@ close all
 
 [inputimage, ABSPATH_TENSOR]=uigetfile(strcat(pwd,'\.tif'));
 
-cd (ABSPATH_TENSOR);
 tiff_info = imfinfo(inputimage);
 [im_filepath, im_filename, im_extension]=fileparts(inputimage);
 imageindex=im_filename;

@@ -1,4 +1,4 @@
-function [u] = function_calculate_tensor_ver2(firstkeep_, secondkeep_, DT_ )
+function [u] = function_calculate_flow(firstkeep_, secondkeep_, DT_ )
 
 
 
