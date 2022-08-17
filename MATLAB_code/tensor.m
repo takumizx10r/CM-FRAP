@@ -1,6 +1,8 @@
 clear
 close all
 
+
+
 [inputimage, ABSPATH_TENSOR]=uigetfile(strcat(pwd,'\.tif'));
 
 tiff_info = imfinfo(inputimage);
