@@ -1,5 +1,8 @@
-% % % % After following calculation
-% % % % tensor_verX.m, flow_verX.m, tensor_transform_verX.m
+clear
+close all
+
+waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
+    ' from original LSM image. File sould be under tifimage-chX folder.']));
 
 
 

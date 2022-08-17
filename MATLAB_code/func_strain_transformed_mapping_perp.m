@@ -42,7 +42,7 @@ if szkeep(1,1)~=0
     if find(indx_outlier==2)==1
         keepf=find(TF==0);
     else
-        keepf=[1:length(keepstrain)]';
+        keepf=[1:size(keepstrain,1)]';
     end
 
     

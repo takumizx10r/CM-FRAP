@@ -1,8 +1,8 @@
-
-
 clear
 close all
 
+waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
+    ' from original LSM image. File sould be under tifimage-chX folder.']));
 
 [inputimage, ABSPATH_transform]=uigetfile(strcat(pwd,'\.tif'));
 
@@ -85,7 +85,7 @@ function messagedialog
 
     txt = uicontrol('Parent',d,...
                'Style','text',...
-               'Position',[20 80 210 40],...
+               'Position',[20 80 210 140],...
                'String',['Time changes of variables were saved in "Deformation_transformed" and' ...
                ' variables were saved in "MATLAB-Results-Defvector_transformed".']);
 

@@ -13,6 +13,8 @@ axtoolbar('Visible','off');
 frame=1;
 imagedata = imread(inputimage,'Index',frame+RAB_Frame-1);  
 imagesc(imagedata);
+im_info=imfinfo(inputimage);
+im_size=im_info(frame+RAB_Frame-1).Height;
 load spine
 colormap(ax1,map);
 hold on
@@ -46,9 +48,10 @@ Ydata=mean(Data(:,7:10),2);
 scatter(Xdata,Ydata, 25, Cdata, 'filled' )
 
 
-plot ([80;80],[80;80+10/pixelsize],'-w',[80;80+10/pixelsize],[80;80],'-w','LineWidth',2);
-text(80.0/2,130.0,strcat('\fontsize{16} \fontname{Arial}10 ',char(181),'m'), 'HorizontalAlignment','center','Rotation',90, 'Color','white', 'FontWeight','normal');
-text(130.0,80.0/2,strcat('\fontsize{16} \fontname{Arial}10 ',char(181),'m'), 'HorizontalAlignment','center', 'Color', 'white', 'FontWeight','normal');
+plot ([80/1024*im_size;80/1024*im_size],[80/1024*im_size;80/1024*im_size+10/pixelsize], ...
+    '-w',[80/1024*im_size;80/1024*im_size+10/pixelsize],[80/1024*im_size;80/1024*im_size],'-w','LineWidth',2);
+text(80.0/2/1024*im_size,130.0/1024*im_size,strcat('\fontsize{16} \fontname{Arial}10 ',char(181),'m'), 'HorizontalAlignment','center','Rotation',90, 'Color','white', 'FontWeight','normal');
+text(130.0/1024*im_size,80.0/2/1024*im_size,strcat('\fontsize{16} \fontname{Arial}10 ',char(181),'m'), 'HorizontalAlignment','center', 'Color', 'white', 'FontWeight','normal');
 % time_str=strcat(sprintf('%d (s)',time));
 % text(900.0 , 80.0/2,time_str,'FontName','Arial','FontSize',14, 'HorizontalAlignment','center', 'Color','white', 'FontWeight','normal');
         

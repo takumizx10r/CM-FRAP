@@ -8,9 +8,9 @@ V_vector=zeros(length(inputTensor_list),4);
 for posi=1:length(inputTensor_list)
     % % % Get Vectors
     [PathOfTensor, NameOfTensor, ExtOfTensor]=fileparts(inputTensor_list(posi).name);
-    
+
     inputCorrect=strcat(ABSPATH_Flow,'\rectangle_coordinate_to_correct\', NameOfTensor,'.txt');
-    
+
     load(strcat(ABSPATH_Flow,'\MATLAB-Results-Flow\',NameOfTensor,'.mat'));
     time=interval*(iter-1);
     sz=size(MeanDeformationVectorList);
@@ -36,42 +36,44 @@ clear keep1
 keep1=find( (U_vector(:,3)~=0) & (U_vector(:,4)~=0) );
 szkeep=size(keep1);
 if szkeep(1,1)~=0
- %%%%%make arrow
+    %%%%%make arrow
 
-%%%%%make arrow Flow
-clear keepvectors keepf
-keepvectors=U_vector(keep1,1:4);
-[A1 TF1]=rmoutliers(keepvectors(:,3));
-[A2 TF2]=rmoutliers(keepvectors(:,4));
-if find(indx_outlier==3)==1
-    keepf=find(TF1==0 & TF2==0);
-else
-    keepf=[1:length(keepvectors)]';
-end
-B=keepvectors(keepf,:);
-% % Flow norm field
-[fig]=func_make_arrow_ver3_NormField(inputimage, iter, RAB_Frame, inputTensor_list, B,scale_displacement,pixelsize,time);
-%%save
-name='Vectors_Mean_ColorNorm';
-[keepPath, keepName, keepExt]=fileparts(inputimage);
-strframe=sprintf('%03d',iter);
-myMovie1  =   getframe(fig);
-SAVENAME=strcat(outpath,'\',strframe,'_',name,outextension);
-exportgraphics(gcf,SAVENAME,'BackgroundColor','none','Resolution',600,'ContentType','vector');
-close
+    %%%%%make arrow Flow
+    clear keepvectors keepf
+    keepvectors=U_vector(keep1,1:4);
+    [A1 TF1]=rmoutliers(keepvectors(:,3));
+    [A2 TF2]=rmoutliers(keepvectors(:,4));
+    if find(indx_outlier==3)==1
+        keepf=find(TF1==0 & TF2==0);
+    else
+        keepf=[1:size(keepvectors,1)]';
+    end
+    B=keepvectors(keepf,:);
+    if size(B,1)>1
+        % % Flow norm field
+        [fig]=func_make_arrow_ver3_NormField(inputimage, iter, RAB_Frame, inputTensor_list, B,scale_displacement,pixelsize,time);
+        %%save
+        name='Vectors_Mean_ColorNorm';
+        [keepPath, keepName, keepExt]=fileparts(inputimage);
+        strframe=sprintf('%03d',iter);
+        myMovie1  =   getframe(fig);
+        SAVENAME=strcat(outpath,'\',strframe,'_',name,outextension);
+        exportgraphics(gcf,SAVENAME,'BackgroundColor','none','Resolution',600,'ContentType','vector');
+        close
 
 
-% % Flow orient field
-[fig]=func_make_arrow_ver3_OrientField(inputimage, iter, RAB_Frame, inputTensor_list, B,scale_displacement,pixelsize, time);
+        % % Flow orient field
+        [fig]=func_make_arrow_ver3_OrientField(inputimage, iter, RAB_Frame, inputTensor_list, B,scale_displacement,pixelsize, time);
 
-%%save
-name='Vectors_Mean_ColorOrient';
-[keepPath, keepName, keepExt]=fileparts(inputimage);
-strframe=sprintf('%03d',iter);
-myMovie2  =   getframe(fig);
-SAVENAME=strcat(outpath,'\',strframe,'_',name,outextension);
-exportgraphics(gcf,SAVENAME,'BackgroundColor','none','Resolution',600,'ContentType','vector');
-close
+        %%save
+        name='Vectors_Mean_ColorOrient';
+        [keepPath, keepName, keepExt]=fileparts(inputimage);
+        strframe=sprintf('%03d',iter);
+        myMovie2  =   getframe(fig);
+        SAVENAME=strcat(outpath,'\',strframe,'_',name,outextension);
+        exportgraphics(gcf,SAVENAME,'BackgroundColor','none','Resolution',600,'ContentType','vector');
+        close
+    end
 end
 end
 

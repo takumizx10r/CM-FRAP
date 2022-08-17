@@ -44,9 +44,9 @@ if szkeep(1,1)~=0
     if find(indx_outlier==1)==1
         keepf=find(TF==0);
     else
-        keepf=[1:length(keepstrain)]';
+        keepf=[1:size(keepstrain,1)]';
     end
-    [MAX , MIN,fig]=func_make_rectangle_strain_field_ver2           (inputimage, iter, RAB_Frame,  keepstrain(keepf,:),pixelsize, time);
+    [MAX , MIN,fig]=func_make_rectangle_strain_field_ver2(inputimage, iter, RAB_Frame,  keepstrain(keepf,:),pixelsize, time);
 %     [MAX , MIN,fig]=func_make_rectangle_strainTransformed_field_ver2(inputimage, Iter, RAB_Frame,  keepstrain(keepf,:),pixelsize, time);
 
     name='VolStrain';

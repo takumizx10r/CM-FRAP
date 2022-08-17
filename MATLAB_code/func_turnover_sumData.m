@@ -36,7 +36,7 @@ if szkeep(1,1)~=0
     if find(indx_outlier==4)==1
         keepf=find(TF==0);
     else
-        keepf=[1:length(keepdata)]';
+        keepf=[1:size(keepdata,1)]';
     end
     
     outputdata_MF_K= keepdata(keepf,:);

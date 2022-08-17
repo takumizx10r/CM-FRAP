@@ -1,9 +1,8 @@
-% % After tensor_verXX.m
-% % plot with xaxis and yaxis correnspond to time and mechanical properties
-
-
-clear 
+clear
 close all
+
+waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
+    ' from original LSM image. File sould be under tifimage-chX folder.']));
 
 
 
@@ -211,7 +210,7 @@ function messagedialog
 
     txt = uicontrol('Parent',d,...
                'Style','text',...
-               'Position',[20 80 210 40],...
+               'Position',[20 80 210 140],...
                'String',['Time changes of variables were saved in "StrainOverTime","StrainRateOverTime"' ...
                '"DisplacementOverTime", "FlowOverTime", "RecoveryCurves".']);
 

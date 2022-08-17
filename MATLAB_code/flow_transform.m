@@ -1,5 +1,9 @@
 clear
 close all
+
+waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
+    ' from original LSM image. File sould be under tifimage-chX folder.']));
+
 [inputimage, ABSPATH_transform]=uigetfile(strcat(pwd,'\.tif'));
 
 

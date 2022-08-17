@@ -1,4 +1,4 @@
-function [U_vector,V_vector ] = func_all_vector_transformed_ver3(ipwdnputTensor_list,  inputimage, iter, frame, scale_displacement, scale_velocity,ABSPATH_Flow,outextension,outpath)
+function [U_vector,V_vector ] = func_all_vector_transformed_ver3(inputTensor_list,  inputimage, iter, frame, scale_displacement, scale_velocity,ABSPATH_Flow,outextension,outpath)
 %UNTITLED3 この関数の概要をここに記述
 %   詳細説明をここに記述
 

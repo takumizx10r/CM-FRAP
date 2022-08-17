@@ -46,13 +46,13 @@ keepvectors=U_vector(keep1,1:4);
 % keepvectors=V_vector(keep1,1:4);
 [A1 TF1]=rmoutliers(keepvectors(:,3));
 [A2 TF2]=rmoutliers(keepvectors(:,4));
-% if find(indx_outlier==3)==1
-%     keepf=find(TF1==0 & TF2==0);
-% else
-%     keepf=[1:length(keepstrain)];
-% end
-B=keepvectors(:,:);
-% B=keepvectors(keepf,:);
+if find(indx_outlier==3)==1
+    keepf=find(TF1==0 & TF2==0);
+else
+    keepf=[1:size(keepvectors,1)];
+end
+% B=keepvectors(:,:);
+B=keepvectors(keepf,:);
 % % % Flow norm field
 [fig]=func_make_arrow_ver3_NormField(inputimage, iter, RAB_Frame, inputTensor_list, B,scale_displacement,pixelsize,time);
 % %%Save

@@ -1,7 +1,8 @@
 clear
 close all
 
-
+waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
+    ' from original LSM image. File sould be under tifimage-chX folder.']));
 
 [inputimage, ABSPATH_TENSOR]=uigetfile(strcat(pwd,'\.tif'));
 
@@ -14,8 +15,8 @@ addpath (ABSPATH_TENSOR);
 
 
 prompt = {'Interval (s):','Num of waiting frames:','Right after bleach frame:'};
-dlgtitle = 'Input';
-dims = [1 35];
+dlgtitle = 'Image information';
+dims = [1 50];
 definput = {'15','2', '3'};
 answer = inputdlg(prompt,dlgtitle,dims,definput);
 interval=str2num(answer{1}); %sec
