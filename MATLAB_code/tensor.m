@@ -3,6 +3,7 @@ close all
 
 waitfor(msgbox(['Select TIFF file of whole cell image that was converted' ...
     ' from original LSM image. File sould be under tifimage-chX folder.']));
+addpath (pwd);
 
 [inputimage, ABSPATH_TENSOR]=uigetfile(strcat(pwd,'\.tif'));
 cd (ABSPATH_TENSOR)
