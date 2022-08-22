@@ -106,7 +106,7 @@ for iter=1:OUTITER:TotalIteration
         movie_strain(frame)=keepMovie;
         StrainVall(:,:,iter)=StrainV;
     end
-    writematrix(StrainVall,strcat(outputfigures_path,'\',sprintf('%03d',iter),'_VolStrain.txt'),'Delimiter','\t')
+    writematrix(StrainVall(:,:,iter),strcat(outputfigures_path,'\',sprintf('%03d',iter),'_VolStrain.txt'),'Delimiter','\t')
     clear keepMovie
     % % % % % % % % Transformed strain field para
     [keepMovie,StrainParallel, List_K]=func_strain_transformed_mapping_para(inputTensor_list,  inputimage, iter, frame, ...
@@ -114,7 +114,7 @@ for iter=1:OUTITER:TotalIteration
     if isnan(keepMovie.cdata)==0
         movie_strain_trf(frame)=keepMovie;
         Strain_Transform_all(:,:,iter)=StrainParallel;
-        writematrix(Strain_Transform_all,strcat(outputfigures_path,'\',sprintf('%03d',iter),'_TrStrain_para.txt'),'Delimiter','\t');
+        writematrix(Strain_Transform_all(:,:,iter),strcat(outputfigures_path,'\',sprintf('%03d',iter),'_TrStrain_para.txt'),'Delimiter','\t');
     end
 
     clear keepMovie
@@ -124,7 +124,7 @@ for iter=1:OUTITER:TotalIteration
     if isnan(keepMovie.cdata)==0
         movie_strain_trf_perp(frame)=keepMovie;
         Strain_Transform_all_perp(:,:,iter)=StrainPerp;
-        writematrix(Strain_Transform_all_perp,strcat(outputfigures_path,'\',sprintf('%03d',iter),'_TrStrain_perp.txt'),'Delimiter','\t');
+        writematrix(Strain_Transform_all_perp(:,:,iter),strcat(outputfigures_path,'\',sprintf('%03d',iter),'_TrStrain_perp.txt'),'Delimiter','\t');
 
     end
     clear keepMovie
