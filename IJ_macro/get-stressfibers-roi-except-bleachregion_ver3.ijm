@@ -55,12 +55,20 @@ for (i = 0; i < n; i++) {
 }
 
 N=roiManager("count");
+A=newArray(N/2);
 for (i = 0; i < N/2; i++) {
-	roiManager("Select", i+n);
+	A[i]=i+n;
+	/*roiManager("Select", i+n);
 	roiManager("Measure");
 	saveAs("Results", outputfile+baseoriginName+"\\"+IJ.pad(i, 5)+".txt");
-	close("Results");
+	close("Results");*/
 }
+roiManager("Select", A);
+roiManager("Measure");
+saveAs("Results", outputfile+baseoriginName+".txt");
+close("Results");
+
+
 setBatchMode("exit and display");
 roiManager("Save", outputroi+baseoriginName+".zip");
 close();
